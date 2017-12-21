@@ -1,0 +1,9 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=zMail
+Comment=Terminal wrapper around sup-mail and friends
+Path=/home/leonard
+Exec=/home/leonard/bin/sup-wrapper
+Icon=/home/leonard/.sup-wrapper/icon.svg

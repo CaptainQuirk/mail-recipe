@@ -1,0 +1,22 @@
+#!/bin/bash
+
+sudo apt-get install sup-mail
+sudo apt-get install ruby-gpgme
+
+sudo apt-get install isync
+sudo apt-get install msmtp
+
+if [ ! -d ~/.msmtp-config ]; then
+    git clone https://github.com/CaptainQuirk/.msmtp-config.git ~/.msmtp-config
+    ln -s ~/.msmtp-config/msmtprc ~/.msmtprc
+fi
+
+# Get remote sup-wrapper repo
+SUP_WRAPPER_PATH=~/bin/sup-wrapper
+if [ ! -L SUP_WRAPPER_PATH ]; then
+    ln -s ~/.sup-wrapper/sup-wrapper $SUP_WRAPPER_PATH
+
+    echo -e "$VAR" > $SUP_WRAPPER_PATH
+    chmod +x $SUP_WRAPPER_PATH
+fi
+cp ./files/sup-mail-wrapper.desktop ~/.local/share/applications/zmail.desktop

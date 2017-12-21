@@ -1,0 +1,4 @@
+{
+  "name": "hillaryklingon/mail-recipe",
+  "description": "Installs the sup mail client along with isync and msmtp"
+}
