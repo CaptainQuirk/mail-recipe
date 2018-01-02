@@ -1,22 +1,25 @@
 #!/bin/bash
 
-sudo apt-get install sup-mail
-sudo apt-get install ruby-gpgme
+CONFIG_SRC_DIR=$HOME/Documents/configuration/src
+WORKSTATION_CONFIG_DIR=$HOME/Documents/configuration/workstation
+MAIL_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-sudo apt-get install isync
-sudo apt-get install msmtp
+brew install alot isync msmtp
 
-if [ ! -d ~/.msmtp-config ]; then
-    git clone https://github.com/CaptainQuirk/.msmtp-config.git ~/.msmtp-config
-    ln -s ~/.msmtp-config/msmtprc ~/.msmtprc
+if [ ! -d $HOME/mail/work ]; then
+    mkdir -p $HOME/mail/work
 fi
 
-# Get remote sup-wrapper repo
-SUP_WRAPPER_PATH=~/bin/sup-wrapper
-if [ ! -L SUP_WRAPPER_PATH ]; then
-    ln -s ~/.sup-wrapper/sup-wrapper $SUP_WRAPPER_PATH
-
-    echo -e "$VAR" > $SUP_WRAPPER_PATH
-    chmod +x $SUP_WRAPPER_PATH
+source $WORKSTATION_CONFIG_DIR/mail-recipe
+if [ ! -d $CONFIG_SRC_DIR/.msmtp ]; then
+    git clone $MSMTP_REPO_URL $CONFIG_SRC_DIR/.msmtp
+    ln -s -f $CONFIG_SRC_DIR/.msmtp/msmtprc $HOME/.msmtprc
 fi
-cp ./files/sup-mail-wrapper.desktop ~/.local/share/applications/zmail.desktop
+
+if [ ! -d $CONFIG_SRC_DIR/.mbsync ]; then
+    git clone $MBSYNC_REPO_URL $CONFIG_SRC_DIR/.mbsync
+    ln -s -f $CONFIG_SRC_DIR/.mbsync/mbsyncrc $HOME/.mbsyncrc
+fi
+
+sudo cp --update $MAIL_RECIPE_DIR/files/sync-mail /usr/local/bin
+sudo chmod +x /usr/local/bin/sync-mail

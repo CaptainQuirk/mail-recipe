@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while true
+do
+    mbsync -q work
+    if [ $? -ne 0 ]; then
+        echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Sync failed"
+    else
+        echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Sync succeeded"
+    fi
+    sleep 300
+done
