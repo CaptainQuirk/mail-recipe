@@ -44,5 +44,12 @@ cd $CONFIG_SRC_DIR/.alot
 git pull
 cd -
 
+cp /home/linuxbrew/.linuxbrew/share/alot/alot.desktop $HOME/.local/share/applications
+
+FIND_MAILTO=$(grep -nri "mailto" $HOME/.local/share/applications/mimeapps.list)
+if [ $? -eq 1 ]; then
+    echo "x-scheme-handler/mailto=alot.desktop" >> $HOME/.local/share/applications/mimeapps.list
+fi
+
 sudo cp --update $MAIL_RECIPE_DIR/files/sync-mail /usr/local/bin
 sudo chmod +x /usr/local/bin/sync-mail
