@@ -4,7 +4,7 @@ CONFIG_SRC_DIR=$HOME/Documents/configuration/src
 WORKSTATION_CONFIG_DIR=$HOME/Documents/configuration/workstation
 MAIL_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-brew install alot isync msmtp
+brew install alot isync msmtp notmuch
 
 if [ ! -d $HOME/mail/work ]; then
     mkdir -p $HOME/mail/work
@@ -15,11 +15,34 @@ if [ ! -d $CONFIG_SRC_DIR/.msmtp ]; then
     git clone $MSMTP_REPO_URL $CONFIG_SRC_DIR/.msmtp
     ln -s -f $CONFIG_SRC_DIR/.msmtp/msmtprc $HOME/.msmtprc
 fi
+cd $CONFIG_SRC_DIR/.msmtp
+git pull
+cd -
 
 if [ ! -d $CONFIG_SRC_DIR/.mbsync ]; then
     git clone $MBSYNC_REPO_URL $CONFIG_SRC_DIR/.mbsync
     ln -s -f $CONFIG_SRC_DIR/.mbsync/mbsyncrc $HOME/.mbsyncrc
 fi
+cd $CONFIG_SRC_DIR/.mbsync
+git pull
+cd -
+
+if [ ! -d $CONFIG_SRC_DIR/.notmuch ]; then
+    git clone $NOTMUCH_REPO_URL $CONFIG_SRC_DIR/.notmuch
+    ln -s -f $CONFIG_SRC_DIR/.notmuch/notmuch-config $HOME/.notmuch-config
+fi
+cd $CONFIG_SRC_DIR/.notmuch
+git pull
+cd -
+
+if [ ! -d $CONFIG_SRC_DIR/.alot ]; then
+    git clone $ALOT_REPO_URL $CONFIG_SRC_DIR/.alot
+    mkdir -p $HOME/.config/alot
+    ln -s -f $CONFIG_SRC_DIR/.alot/config $HOME/.config/alot/config
+fi
+cd $CONFIG_SRC_DIR/.alot
+git pull
+cd -
 
 sudo cp --update $MAIL_RECIPE_DIR/files/sync-mail /usr/local/bin
 sudo chmod +x /usr/local/bin/sync-mail
