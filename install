@@ -65,3 +65,5 @@ if [ ! -d $HOME/.local/configuration/mail ]; then
 fi
 
 cp --update $MAIL_RECIPE_DIR/files/tmux.conf $HOME/.local/configuration/mail
+
+cp --update $MAIL_RECIPE_DIR/files/zmail.yml $HOME/.config/tmuxinator
