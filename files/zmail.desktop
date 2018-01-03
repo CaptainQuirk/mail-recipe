@@ -3,7 +3,7 @@
 Type=Application
 Version=1.0
 Name=zMail
-Comment=Terminal wrapper around sup-mail and friends
-Path=/home/leonard
-Exec=/home/leonard/bin/sup-wrapper
-Icon=/home/leonard/.sup-wrapper/icon.svg
+Comment=Terminal wrapper around alot and friends
+Path=/home/leonard/mail
+Exec=zmail
+Icon=/home/leonard/.local/share/icons/zmail.png

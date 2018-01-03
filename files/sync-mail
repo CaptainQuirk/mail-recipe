@@ -10,3 +10,5 @@ do
     fi
     sleep 300
 done
+
+notmuch new

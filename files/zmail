@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gnome-terminal -e "tmux -f $HOME/.cache/configuration/mail/tmux.conf attach"
