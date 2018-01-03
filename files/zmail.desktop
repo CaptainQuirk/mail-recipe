@@ -7,3 +7,4 @@ Comment=Terminal wrapper around alot and friends
 Path=/home/leonard/mail
 Exec=zmail
 Icon=/home/leonard/.local/share/icons/zmail.png
+Terminal=true
