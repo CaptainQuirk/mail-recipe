@@ -7,8 +7,13 @@ do
         echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Sync failed"
     else
         echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Sync succeeded"
+        notmuch new > /dev/null 2>&1
+        if [ $? -ne 0 ]; then
+          echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Notmuch indexation failed"
+        else
+          echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Notmuch indexation succeeded"
+        fi
     fi
     sleep 300
 done
 
-notmuch new
