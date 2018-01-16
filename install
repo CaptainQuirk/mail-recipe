@@ -67,3 +67,5 @@ fi
 cp --update $MAIL_RECIPE_DIR/files/tmux.conf $HOME/.local/configuration/mail
 
 cp --update $MAIL_RECIPE_DIR/files/zmail.yml $HOME/.config/tmuxinator
+
+(crontab -l ; echo "*/5 * * * * sync-mail") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
