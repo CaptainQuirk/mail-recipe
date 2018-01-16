@@ -58,6 +58,7 @@ sudo cp --update $MAIL_RECIPE_DIR/files/zmail /usr/local/bin
 sudo chmod +x /usr/local/bin/zmail
 
 cp --update $MAIL_RECIPE_DIR/files/zmail.desktop $HOME/.local/share/applications
+ln -s -f $HOME/.local/share/applications/zmail.desktop /home/leonard/.config/autostart/zmail.desktop
 cp --update $MAIL_RECIPE_DIR/files/zmail.png $HOME/.local/share/icons
 
 if [ ! -d $HOME/.local/configuration/mail ]; then
