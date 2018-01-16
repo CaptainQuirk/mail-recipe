@@ -1,0 +1,9 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=GPG Prompt
+Comment=Prompt to unlock gpg key
+Path=/home/leonard/
+Exec=prompt-for-gpg-key
+Icon=/home/leonard/Pictures/configuration/irssi.jpg

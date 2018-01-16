@@ -69,3 +69,8 @@ cp --update $MAIL_RECIPE_DIR/files/tmux.conf $HOME/.local/configuration/mail
 cp --update $MAIL_RECIPE_DIR/files/zmail.yml $HOME/.config/tmuxinator
 
 (crontab -l ; echo "*/5 * * * * sync-mail") 2>&1 | grep -v "no crontab" | sort | uniq | crontab -
+
+sudo cp --update $MAIL_RECIPE_DIR/files/prompt-for-gpg-key /usr/local/bin
+
+cp --update $MAIL_RECIPE_DIR/files/prompt-for-gpg-key.desktop $HOME/.local/share/applications/prompt-for-gpg-key.desktop
+ln -s -f $HOME/.local/share/applications/prompt-for-gpg-key.desktop /home/leonard/.config/autostart/prompt-for-gpg-key.desktop
