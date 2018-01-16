@@ -1,19 +1,18 @@
 #!/bin/bash
 
-while true
-do
-    mbsync -q work
+export PASSWORD_STORE_DIR=/home/leonard/.password-store
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+
+/home/linuxbrew/.linuxbrew/bin/mbsync  --config /home/leonard/.mbsyncrc --quiet work
+if [ $? -ne 0 ]; then
+    echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Sync failed"
+else
+    echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Sync succeeded"
+    /home/linuxbrew/.linuxbrew/bin/notmuch new > /dev/null 2>&1
     if [ $? -ne 0 ]; then
-        echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Sync failed"
+      echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Notmuch indexation failed"
     else
-        echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Sync succeeded"
-        notmuch new > /dev/null 2>&1
-        if [ $? -ne 0 ]; then
-          echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Notmuch indexation failed"
-        else
-          echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Notmuch indexation succeeded"
-        fi
+      echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Notmuch indexation succeeded"
     fi
-    sleep 300
-done
+fi
 
