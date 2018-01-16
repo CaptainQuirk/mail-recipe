@@ -38,10 +38,14 @@ cd -
 if [ ! -d $CONFIG_SRC_DIR/.alot ]; then
     git clone $ALOT_REPO_URL $CONFIG_SRC_DIR/.alot
     mkdir -p $HOME/.config/alot
-    ln -s -f $CONFIG_SRC_DIR/.alot/config $HOME/.config/alot/config
 fi
+
 cd $CONFIG_SRC_DIR/.alot
 git pull
+
+ln -s -f $CONFIG_SRC_DIR/.alot/config $HOME/.config/alot/config
+ln -s -f $CONFIG_SRC_DIR/.alot/hooks.py $HOME/.config/alot/hooks.py
+
 cd -
 
 cp /home/linuxbrew/.linuxbrew/share/alot/alot.desktop $HOME/.local/share/applications
