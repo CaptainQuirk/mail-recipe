@@ -43,5 +43,5 @@ root: ~/mail
 # post: tmux -CC attach -t zmail
 
 windows:
-  - sync-mail: pass -c outlook.office.com/web && sync-mail
   - alot: alot
+  - log: lnav /var/log/mbsync.log
