@@ -5,4 +5,4 @@ export GPG_TTY
 
 gpg-connect-agent /bye
 source $HOME/.mail-profile
-urxvt --hold -e /bin/zsh -c "PASSWORD_STORE_KEY=C45D6413 pass $EMAIL_PASSWORD_PATH"
+urxvt --hold -e /bin/zsh -c "pass -c $EMAIL_PASSWORD_PATH"
