@@ -45,6 +45,7 @@ git pull
 
 ln -s -f $CONFIG_SRC_DIR/.alot/config $HOME/.config/alot/config
 ln -s -f $CONFIG_SRC_DIR/.alot/hooks.py $HOME/.config/alot/hooks.py
+ln -s -f $CONFIG_SRC_DIR/.alot/mailcap $HOME/.mailcap
 
 cd -
 
