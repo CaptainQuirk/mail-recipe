@@ -10,6 +10,7 @@ if [ ! -d $HOME/mail/work ]; then
     mkdir -p $HOME/mail/work
 fi
 
+# TODO prompt user to create the mail-recipe file
 source $WORKSTATION_CONFIG_DIR/mail-recipe
 if [ ! -d $CONFIG_SRC_DIR/.msmtp ]; then
     git clone $MSMTP_REPO_URL $CONFIG_SRC_DIR/.msmtp
