@@ -64,7 +64,6 @@ sudo cp --update $MAIL_RECIPE_DIR/files/zmail /usr/local/bin
 sudo chmod +x /usr/local/bin/zmail
 
 cp --update $MAIL_RECIPE_DIR/files/zmail.desktop $HOME/.local/share/applications
-ln -s -f $HOME/.local/share/applications/zmail.desktop /home/leonard/.config/autostart/zmail.desktop
 cp --update $MAIL_RECIPE_DIR/files/zmail.png $HOME/.local/share/icons
 
 if [ ! -d $HOME/.local/configuration/mail ]; then
@@ -80,4 +79,3 @@ cp --update $MAIL_RECIPE_DIR/files/zmail.yml $HOME/.config/tmuxinator
 sudo cp --update $MAIL_RECIPE_DIR/files/prompt-for-gpg-key /usr/local/bin
 
 cp --update $MAIL_RECIPE_DIR/files/prompt-for-gpg-key.desktop $HOME/.local/share/applications/prompt-for-gpg-key.desktop
-ln -s -f $HOME/.local/share/applications/prompt-for-gpg-key.desktop /home/leonard/.config/autostart/prompt-for-gpg-key.desktop
