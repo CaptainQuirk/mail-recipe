@@ -4,7 +4,10 @@ CONFIG_SRC_DIR=$HOME/Documents/configuration/src
 WORKSTATION_CONFIG_DIR=$HOME/Documents/configuration/workstation
 MAIL_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-brew install alot isync msmtp notmuch
+shef brew alot
+shef brew isync
+shef brew msmtp
+shef brew notmuch
 
 if [ ! -d $HOME/mail/work ]; then
     mkdir -p $HOME/mail/work
