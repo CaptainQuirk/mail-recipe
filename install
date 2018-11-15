@@ -82,3 +82,5 @@ cp --update $MAIL_RECIPE_DIR/files/zmail.yml $HOME/.config/tmuxinator
 sudo cp --update $MAIL_RECIPE_DIR/files/prompt-for-gpg-key /usr/local/bin
 
 cp --update $MAIL_RECIPE_DIR/files/prompt-for-gpg-key.desktop $HOME/.local/share/applications/prompt-for-gpg-key.desktop
+
+pip3 install urlscan
