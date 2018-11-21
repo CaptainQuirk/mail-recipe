@@ -1,4 +1,4 @@
 {
-  "name": "hillaryklingon/mail-recipe",
-  "description": "Installs the sup mail client along with isync and msmtp"
+  "name": "captainquirk/mail-recipe",
+  "description": "Installs the alot mail user agent along with notmuch, offlineimap, mbsync and msmtp"
 }
