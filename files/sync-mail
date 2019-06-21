@@ -3,13 +3,11 @@
 export PASSWORD_STORE_DIR=/home/leonard/.password-store
 export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
-/home/linuxbrew/.linuxbrew/bin/mbsync  --config /home/leonard/.mbsyncrc --quiet work
-if [ $? -ne 0 ]; then
+if ! mbsync  --config /home/leonard/.mbsyncrc --quiet work; then
     echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Sync failed"
 else
     echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Sync succeeded"
-    /home/linuxbrew/.linuxbrew/bin/notmuch new > /dev/null 2>&1
-    if [ $? -ne 0 ]; then
+    if ! notmuch new > /dev/null 2>&1; then
       echo "$(date +'%d/%m/%Y %H:%M:%S'): ✗ Notmuch indexation failed"
     else
       echo "$(date +'%d/%m/%Y %H:%M:%S'): ✓ Notmuch indexation succeeded"
