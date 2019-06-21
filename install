@@ -4,10 +4,10 @@ CONFIG_SRC_DIR=$HOME/Documents/configuration/src
 WORKSTATION_CONFIG_DIR=$HOME/Documents/configuration/workstation
 MAIL_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-shef brew alot
+shef apt alot
 shef brew isync
-shef brew msmtp
-shef brew notmuch
+shef apt msmtp
+shef apt notmuch
 
 if [ ! -d $HOME/mail/work ]; then
     mkdir -p $HOME/mail/work
@@ -52,8 +52,6 @@ ln -s -f $CONFIG_SRC_DIR/.alot/hooks.py $HOME/.config/alot/hooks.py
 ln -s -f $CONFIG_SRC_DIR/.alot/mailcap $HOME/.mailcap
 
 cd -
-
-cp /home/linuxbrew/.linuxbrew/share/alot/alot.desktop $HOME/.local/share/applications
 
 FIND_MAILTO=$(grep -nri "mailto" $HOME/.local/share/applications/mimeapps.list)
 if [ $? -eq 1 ]; then
